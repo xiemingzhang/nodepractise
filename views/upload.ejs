@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        上传照片
+    </title>
+    <link rel="stylesheet" href="http://localhost:3000/static/css/master.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">注册中心
+            <span class="title-status"><a href="index">返回相册</a></span>
+        </div>
+        <form class="form" enctype="multipart/form-data" action="dopost" method="post">
+            <ul>
+                <li><input type="text" name="name" placeholder="请输入您的名字" class="txt" /></li>
+                <li><input type="text" name="path" placeholder="请输入您需要设置的文件夹名字" class="txt" /></li>
+                <li><input type="file" name="file"/></li>
+                <li><input type="submit" placeholder="" class="btn" /></li>
+            </ul>
+            <div class="cl"></div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+var fs = require('fs');
+var path = require('path');
+
+function getFiles(filePath) {
+    var data = {
+        Files: [],
+        Dirs: []
+    }
+    fs.readdir(filePath, function(err, files) {
+            (function iterator(i) {
+                if (i == files.length) {
+                   backData(data)
+                } else {
+                    var filedir = path.join(filePath, files[i]);
+                    fs.stat(filedir, function(err, stats) {
+                        if (err) {
+                            throw Error('获取文件stats失败');
+                        } else {
+                            var isFile = stats.isFile(); //是文件  
+                            var isDir = stats.isDirectory(); //是文件夹  
+                            if (isFile) {
+                                data.Files.push(files[i])
+                            }
+                            if (isDir) {
+                                data.Dirs.push(files[i])
+                            }
+                        }
+                        iterator(i + 1);
+                    });
+                }
+            })(0);
+        })
+        /*  var data = {
+                 my: "hshs"
+             }
+             //根据文件路径读取文件，返回文件列表  
+         fs.readdir(filePath, function(err, files) {
+             if (err) {
+                 throw Error("文件路径错误")
+             } else {
+                 //遍历读取到的文件列表 
+                 var Files = [];
+                 var Dirs = [];
+                 files.forEach(function(filename) {
+                     //获取当前文件的绝对路径  
+                     var filedir = path.join(filePath, filename);
+                     //根据文件路径获取文件信息，返回一个fs.Stats对象  
+                     fs.stat(filedir, function(err, stats) {
+                         if (err) {
+                             throw Error('获取文件stats失败');
+                         } else {
+                             var isFile = stats.isFile(); //是文件  
+                             var isDir = stats.isDirectory(); //是文件夹  
+                             if (isFile) {
+                                 Files.push(filename)
+                             }
+                             if (isDir) {
+                                 Dirs.push(filename)
+
+                             }
+                             data.Files = Files;
+                             data.Dirs = Dirs;
+                         }
+                     })
+                 });
+             }
+         });*/
+         function backData(data){
+             console.log(data)
+             return data
+         }
+}
+exports.getFiles = getFiles;

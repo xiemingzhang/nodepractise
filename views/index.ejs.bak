@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,ie=edge">
+    <title>
+        图片首页
+    </title>
+    <link rel="stylesheet" href="css/master.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">相册列表：<a href="upload" class="title-btn">我要上传</a>
+            <span class="title-status"><a href="javascript:;">首页</a>&gt;<!-- <a href="javascript:;">flower</a> --></span>
+        </div>
+        <div class="photo">
+            <ul>
+                <% if(Files.length>0){ %>
+                    <% Files.forEach(function(item){ %>
+                        <li>
+                            <a href="javascript:;"><img src=< %=i tem %> /></a>
+                        </li>
+                        <% }) %>
+                            <% } %>
+                                <% if(Dirs.length>0){ %>
+                                    <% Dirs.forEach(function(item){ %>
+                                        <li>
+                                            <a href="javascript:;"><img src="uploadfiles/images/8.jpg" /></a>
+                                        </li>
+                                        <% }) %>
+                                            <% } %>
+                                                <!--  <li>
+                    <a href="javascript:;"><img src="images/flower/1.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/2.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/3.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/4.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/5.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/6.jpg" /></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="images/flower/7.jpg" /></a>
+                </li>
+                <li class="folder">Flower</li> -->
+            </ul>
+            <div class="cl"></div>
+        </div>
+    </div>
+</body>
+
+</html>
